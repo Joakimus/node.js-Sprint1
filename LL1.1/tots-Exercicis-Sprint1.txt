@@ -1,0 +1,64 @@
+//SPTINT 1.1
+
+/Exercici1
+//Crea una funció que mostri per consola el nom d'usuari/ària en invocar-la passant-li el nom com a paràmetre.
+
+function nomUsuari(nom) {
+    return nom;             //Retornarà el nom de l'usuari
+}
+  let result = nomUsuari('Mariona');
+  console.log("El nom de l_usuari és: " + result);
+
+//Nivell2-Exercici1
+//Mostra per consola el nom i cognoms de l'usuari/ària mitjançant template literals, 
+//guardant-los en variables i referenciant-les en la impressió del missatge.
+
+  let nom = `Mariona`;
+  let cognom = `De la O`;
+  let text_benvinguda = `Benvingut/da usuari/ària ${nom} ${cognom}`;
+  console.log(text_benvinguda);
+
+
+//Nivell2-Exercici2
+//Invoca una funció que retorni un valor des de dins d'una template literal.
+
+function retornTemplate(edat) {
+  return edat;             //Retornarà l'edat de l'usuari
+}
+  let nom = `Mariona`;
+  let cognom = `De la O`;
+  //let text_benvinguda = `Benvingut/da usuari/ària ${nom} ${cognom}`;
+  console.log(`l'edat de l'auauri ${nom} ${cognom} és =  ${retornTemplate(33)}`);
+
+//Nivell3 - Exercici1
+//Crea una matriu de deu funcions i emplena-la mitjançant un bucle 
+//de manera que cada funció compti del 0 al 9 per la consola. 
+//Invoca cada funció de l'array iterativament. 
+//Haurà de mostrar-se per consola el compte del 0 al 9 deu vegades.
+
+var matriuFuncions = [];
+
+//Declarem com serà la funció 
+//cada funció treurà 10 valors del (0..9)
+function func(){
+    for(let i=0; i<10; i++){        
+        console.log(i);       
+    }
+}
+//Creem 10 funcions amb un bucle for
+for (let j=0;j<10;j++){
+    console.log("Valor de la Iteració = ", j);
+    matriuFuncions[j] = func();
+}
+
+
+//Nivell3 - Exercici1
+//Crea una funció anònima autoinvocable igualada a una variable 
+//que mostri per consola el nom de l'usuari/ària a rebut com a paràmetre.
+
+const getNomUsuari = (nomUsu, data) => `El ${nomUsu} ha començat a estudiar  Node.js el ${data}`;
+console.log(getNomUsuari('Pepelu', '2020') );
+//Manera 2
+const nomUsu = ((nomUsu, data) => {
+                                   console.log(`El ${nomUsu} ha començat a estudiar  Node.js el ${data}`);
+                                  })('Pepelu',2020);
