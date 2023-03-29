@@ -68,6 +68,10 @@ async function asyncCall(num) {
   //console.log(result2);
   console.log('Employee  => ' + result1.name, 'Salary  => ' +result2.salary);
 }
+employees.forEach(function (arrayItem) {
+  asyncCall(arrayItem.id);
+});
+/*
 asyncCall(1);
 asyncCall(2);
-asyncCall(3);
+asyncCall(3);*/
