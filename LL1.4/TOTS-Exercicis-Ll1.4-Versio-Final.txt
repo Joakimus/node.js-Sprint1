@@ -1,0 +1,174 @@
+﻿//Sprint1 - Lliurament 1.4
+// Exercici 1
+//Crea una funció asíncrona que rebi un id d'empleat/da i imprimeixi per pantalla el nom de l'empleat/da i el seu salari, 
+//usant les funcions getEmployee() i getSalary() que has definit a la tasca anterior.
+let employees = [
+  {
+    id: 1,
+    name: 'Linux Torvalds',
+  },
+  {
+    id: 2,
+    name: 'Bill Gates',
+  },
+  {
+    id: 3,
+    name: 'Jeff Bezos',
+  },
+];
+
+let salaries = [
+  {
+    id: 1,
+    salary: 4000,
+  },
+  {
+    id: 2,
+    salary: 1000,
+  },
+  {
+    id: 3,
+    salary: 2000,
+  },
+];
+
+const asyncgetEmployee = (ID) => {
+  return  new Promise((resolve, reject) => {
+    if (typeof ID !== 'number') {
+      console.log('El valor del ID ha de ser numèric!!!');
+    }
+    const employee = employees.find((employee) => employee.id == ID);
+    if(employee) {
+      resolve(employee);
+    } else  {
+      reject(`ERROR! L\'empleat ${ID} no existeix`);
+    }
+  });
+};
+
+const asyncGetSalari = (employee) => {
+  const ID = employee.id;
+  return new Promise((resolve, reject) => {
+    if (typeof ID !== 'number') {
+      console.log('El valor del ID ha de ser numèric!!!');
+    }
+    const salari = salaries.find((objSalari) => objSalari.id == ID);
+    if (salari) {
+      resolve(salari);
+    } else {
+      reject(`ERROR! L\'empleat ${ID} no existeix`);
+    }
+  });
+};
+
+async function asyncCall(num) {
+  const result1 = await asyncgetEmployee(num);
+  const result2 = await asyncGetSalari(result1);
+  if ( result1 && result2){
+    console.log('Employee  => ' + result1.name, 'Salary  => ' +result2.salary);
+  }else{
+      console.log("No existeix l'empleat o el Salari");
+  }
+  
+}
+employees.forEach(function (arrayItem) {
+  asyncCall(arrayItem.id);
+});
+
+/*- Exercici 1.2
+Crea una nova funció asíncrona que cridi a una altra que retorni una Promise 
+que efectuï la seva funció resolve() després de 2 segons de la seva invocació. */
+
+function executadespres2Segons() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve('Promesa retornada i funcio resolta després de 2 segons');
+      }, 2000);
+    });
+  }
+  
+  async function asyncCrida() {
+    console.log('Cridant a la funció asíncrona (espera de 2 segons)');
+    const result = await executadespres2Segons();
+    console.log(result);
+  }
+
+  asyncCrida();
+  
+/*-Nivell 2- Exercici 1
+Crea una funció que retorni el doble del número que li passa com a paràmetre després de 2 segons.
+Crea una altra funció que rebi tres números i calculi la suma dels seus dobles fent servir la funció anterior.*/
+
+function executadespres2Segons(num) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        if (typeof num !== 'number'){
+          reject("NO HAS INTRODUIT UN NUMERO CARALLOT!!!");
+        }else{
+          let result = num*2;
+          resolve(result);
+        }
+      }, 2000); 
+    }); 
+  }
+  
+  async function asyncCrida(num1,num2,num3) {
+    if (typeof num1 !== 'number' || typeof num2 !== 'number' || typeof num3 !== 'number' ) {
+                console.log("NO HAS INTRODUIT UN NUMERO CARALLOT!!!");
+     } else{
+            console.log('Cridant a la funció asíncrona (espera de 2 segons)');
+            let doble1 = await executadespres2Segons(num1);
+            let doble2 = await executadespres2Segons(num2);
+            let doble3 = await executadespres2Segons(num3);
+            console.log(`La SUMA TOTAL = ${doble1+doble2+doble3}`);
+      }
+  }
+  asyncCrida(50,7,23)
+  .catch((error) => console.log(error));  
+  asyncCrida(50,7,"x")
+  .catch((error) => console.log(error));  
+  asyncCrida(50,7,)
+  .catch((error) => console.log(error));  
+  
+
+
+/* Nivell 3 - Exercici 1
+Força i captura tants errors com puguis dels nivells 1 i 2. */
+
+/* He posat controls de comprovar que el tipus de dades sigui l'adequat
+ if (typeof ID !== 'number') {
+
+    Controlar l'existència: o sigui comprovar si la variable realment té valor i la dada existeix
+  if (salari) {
+
+    Amb el reject controlar el cas en que la Promise no retorni valor o un valor erroni/no esperat
+reject(`ERROR! L\'empleat ${ID} no existeix`);
+
+Comprovar  que les 2 variables tinguin valor per a llavors treure els resultats (en cas contrari el programa ja no ho calcula)
+if ( result1 && result2){
+
+    Bucle que recorre tot l'array d'Employees sencer: no hi ha possibilitat d'errada ja que no cal introduir el número d'employee
+employees.forEach(function (arrayItem) {
+
+Controlar  el tipus de dades de tots els paràmetres (numèrics) num1,num2,num3 que introdueix l'usuari en fer la crida de la funció
+Crida:  asyncCrida(50,7,23) 
+Control:
+if (typeof num1 !== 'number' || typeof num2 !== 'number' || typeof num3 !== 'number' ) {
+
+He implementat primer el reject i després el resolve tal i com m'has dit tu:
+  if (typeof num !== 'number'){
+          reject("NO HAS INTRODUIT UN NUMERO CARALLOT!!!");
+        }else{
+          let result = num*2;
+          resolve(result);
+        }
+ Capturar els possibles errors de retorn de les Promises amb .catch
+  asyncCrida(50,7,23)
+  .catch((error) => console.log(error));  
+
+*/
+
+
+
+
+
