@@ -34,7 +34,7 @@ let salaries = [
 
 const asyncgetEmployee = (ID) => {
   return  new Promise((resolve, reject) => {
-    if (typeof ID != 'number') {
+    if (typeof ID !== 'number') {
       console.log('El valor del ID ha de ser numèric!!!');
     }
     const employee = employees.find((employee) => employee.id == ID);
@@ -49,7 +49,7 @@ const asyncgetEmployee = (ID) => {
 const asyncGetSalari = (employee) => {
   const ID = employee.id;
   return new Promise((resolve, reject) => {
-    if (typeof ID != 'number') {
+    if (typeof ID !== 'number') {
       console.log('El valor del ID ha de ser numèric!!!');
     }
     const salari = salaries.find((objSalari) => objSalari.id == ID);
@@ -64,14 +64,13 @@ const asyncGetSalari = (employee) => {
 async function asyncCall(num) {
   const result1 = await asyncgetEmployee(num);
   const result2 = await asyncGetSalari(result1);
-  //console.log(result1);
-  //console.log(result2);
-  console.log('Employee  => ' + result1.name, 'Salary  => ' +result2.salary);
+  if ( result1 && result2){
+    console.log('Employee  => ' + result1.name, 'Salary  => ' +result2.salary);
+  }else{
+      console.log("No existeix l'empleat o el Salari");
+  }
+  
 }
 employees.forEach(function (arrayItem) {
   asyncCall(arrayItem.id);
 });
-/*
-asyncCall(1);
-asyncCall(2);
-asyncCall(3);*/
