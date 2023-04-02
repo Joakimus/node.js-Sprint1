@@ -63,10 +63,13 @@ dades encriptada, per a la funció decrypt per a que aquesta pugui fer la seva t
 
 ACLARIMENT
 Realment, el programa internament treballa sempre que és possible, amb cadenes emmagatzemades a variables, i nomes fa operacions amb fitxers al disc, quan:
-        1.- toca llegir el contingut del fitxer de dades inicial.
-        2.- cal crear fitxers codificats o encriptats al disc.
-        3.- cal eliminar fitxers codificats o encriptats del disc.
 
+        1.- toca llegir el contingut del fitxer de dades inicial.
+        
+        2.- cal crear fitxers codificats o encriptats al disc.
+        
+        3.- cal eliminar fitxers codificats o encriptats del disc.
+        
 
 //B) Eliminació de fitxers codificats (intermitjos)
 
