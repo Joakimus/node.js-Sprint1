@@ -94,6 +94,7 @@ escriure_fitxer(`${ruta}/fitxer_original-base64.txt`,decodedBase64, 'text');
 Eliminació de fitxers encriptats .aes 
 
 Cal executar la funció eliminar_fitxer amb la ruta de dades i el nom del fitxer:
+
 eliminar_fitxer(`${ruta}/fitxer_hexa.aes`);
 eliminar_fitxer(`${ruta}/fitxer_base64.aes`);
 
