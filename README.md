@@ -62,11 +62,10 @@ La funció criptoFitx retorna un objecte format per l'initVector emprat per a fe
 dades encriptada, per a la funció decrypt per a que aquesta pugui fer la seva tasca de desencriptació de les dades dels fitxers.
 
 ACLARIMENT
-Realment, el programa internament treballa sempre que és possible, amb cadenes emmagatzemades a variables, 
-i nomes fa operacions amb fitxers al disc, quan:
-1.- toca llegir el contingut del fitxer de dades inicial.
-2.- cal crear fitxers codificats o encriptats al disc.
-3.- cal eliminar fitxers codificats o encriptats del disc.
+Realment, el programa internament treballa sempre que és possible, amb cadenes emmagatzemades a variables, i nomes fa operacions amb fitxers al disc, quan:
+        1.- toca llegir el contingut del fitxer de dades inicial.
+        2.- cal crear fitxers codificats o encriptats al disc.
+        3.- cal eliminar fitxers codificats o encriptats del disc.
 
 
 //B) Eliminació de fitxers codificats (intermitjos)
@@ -86,7 +85,7 @@ el contingut ja desencriptat dels 2 fitxers (però encara codificat):
         
         decrypt(outputBase64);
         
-Retorna:
+Retorna el contingut ja desencriptat dels 2 fitxers (però encara codificat):
 
         let hexDecrypted = decrypt(outputHexa);
         
