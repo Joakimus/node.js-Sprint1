@@ -72,6 +72,7 @@ i nomes fa operacions amb fitxers al disc, quan:
 //B) Eliminació de fitxers codificats (intermitjos)
 
 Cal executar la funció eliminar_fitxer amb la ruta de dades i el nom del fitxer:
+
         eliminar_fitxer(`${ruta}/fitxer.hex`);
         
         eliminar_fitxer(`${ruta}/fitxer.base64`);
@@ -86,6 +87,7 @@ el contingut ja desencriptat dels 2 fitxers (però encara codificat):
         decrypt(outputBase64);
         
 Retorna:
+
         let hexDecrypted = decrypt(outputHexa);
         
         let base64Decrypted = decrypt(outputBase64);
