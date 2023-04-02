@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "convert-hex": "^0.1.0",
+    "cryptify": "^4.1.2",
+    "crypto": "^1.0.1",
+    "detect-file-encoding-and-language": "^2.3.3",
+    "nodejs-base64-converter": "^1.0.5"
+  }
+}
