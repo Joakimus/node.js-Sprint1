@@ -22,14 +22,14 @@ DIRECTORIS I FITXERS
 Sots directori dades/
 Fitxer de dades inicial: dades/test.txt
 
-dades/
-        test.txt
-        fitxer.hex
-        fitxer.base64
-        fitxer_hexa.aes
-        fitxer_base64.aes
-        fitxer_original-base64.txt
-        fitxer_original-hex.txt
+        dades/
+                test.txt
+                fitxer.hex
+                fitxer.base64
+                fitxer_hexa.aes
+                fitxer_base64.aes
+                fitxer_original-base64.txt
+                fitxer_original-hex.txt
 
 Instruccions d'ús del Programa
 
@@ -53,8 +53,9 @@ La variable ruta (a tot el programa)conté la ruta relativa al directori de dade
 Cridem/executem a la funció criptoFitx amb els 2 formats de dades (Hexa i Base64) i aquesta ens retorna 
 el contingut dels 2 fitxers 
 
-let outputHexa = criptoFitx(cadena_hex,'hexa');
-let outputBase64 = criptoFitx(data64,'base64');
+        let outputHexa = criptoFitx(cadena_hex,'hexa');
+        
+        let outputBase64 = criptoFitx(data64,'base64');
 
 ACLARIMENT:
 La funció criptoFitx retorna un objecte format per l'initVector emprat per a fer l'encriptació, i també la cadena de 
@@ -71,18 +72,23 @@ i nomes fa operacions amb fitxers al disc, quan:
 //B) Eliminació de fitxers codificats (intermitjos)
 
 Cal executar la funció eliminar_fitxer amb la ruta de dades i el nom del fitxer:
-eliminar_fitxer(`${ruta}/fitxer.hex`);
-eliminar_fitxer(`${ruta}/fitxer.base64`);
+        eliminar_fitxer(`${ruta}/fitxer.hex`);
+        
+        eliminar_fitxer(`${ruta}/fitxer.base64`);
 
 //C) Desencriptació dels fitxers encriptats
 
 Cridem/executem a la funció decrypt, amb els 2 formats de dades (Hexa i Base64) i aquesta ens retorna 
 el contingut ja desencriptat dels 2 fitxers (però encara codificat):
-decrypt(outputHexa);
-decrypt(outputBase64);
+
+        decrypt(outputHexa);
+        
+        decrypt(outputBase64);
+        
 Retorna:
-let hexDecrypted = decrypt(outputHexa);
-let base64Decrypted = decrypt(outputBase64);
+        let hexDecrypted = decrypt(outputHexa);
+        
+        let base64Decrypted = decrypt(outputBase64);
 
 //C) Descodificar els fitxers Hexa i Base64 /Generar fitxers finals en format texte/Eliminar fitxers encriptats .aes
 Amb les dades desencriptades que retorna la funció decrypt, el programa en fa la descodificació. 
