@@ -88,15 +88,17 @@ let base64Decrypted = decrypt(outputBase64);
 Amb les dades desencriptades que retorna la funció decrypt, el programa en fa la descodificació. 
 A partir de les dades descodificades (en els 2 formats), per a generar els 2 fitxers finals (en text pla), cal executar:
 
-escriure_fitxer(`${ruta}/fitxer_original-hex.txt`,decodedHex, 'text');
-escriure_fitxer(`${ruta}/fitxer_original-base64.txt`,decodedBase64, 'text');
+        escriure_fitxer(`${ruta}/fitxer_original-hex.txt`,decodedHex, 'text');
+        
+        escriure_fitxer(`${ruta}/fitxer_original-base64.txt`,decodedBase64, 'text');
 
 Eliminació de fitxers encriptats .aes 
 
 Cal executar la funció eliminar_fitxer amb la ruta de dades i el nom del fitxer:
 
-eliminar_fitxer(`${ruta}/fitxer_hexa.aes`);
-eliminar_fitxer(`${ruta}/fitxer_base64.aes`);
+        eliminar_fitxer(`${ruta}/fitxer_hexa.aes`);
+
+        eliminar_fitxer(`${ruta}/fitxer_base64.aes`);
 
 
 RECURSOS
