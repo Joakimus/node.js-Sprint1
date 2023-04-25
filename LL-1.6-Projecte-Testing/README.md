@@ -10,7 +10,7 @@ SPRINT 1  - Lliurament 1.6 - TESTING
     npx jest filename.test.js
 
 ## Testing files list
-`code()`
+`
   - Ex1-funcions.test.js
   - Ex2-Callbacks-mocked.test.js
   - Ex2-Callbacks.test.js
@@ -21,8 +21,8 @@ SPRINT 1  - Lliurament 1.6 - TESTING
   - Ex-2.3-abstract-class.test.js
   - Exer1-N3.test.js
   - Exer2-N3.test.js
-            
-            
+`
+    
 ## Project Structure:
 ```
 Lliurament 1.6-Projecte Testing
